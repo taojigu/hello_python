@@ -20,4 +20,6 @@ def deptsPage():
     return render_template('deptListPage.html',deptList=deptList)
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    #http://119.45.213.124/
+    #app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="119.45.213.124", port=5000, debug=True)
