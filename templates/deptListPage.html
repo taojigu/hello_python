@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<title>可转债列表</title>
+<body>
+可转债筛选条件:
+<br>
+(1)  价格小于106，溢价率小于20%
+<br>
+(2)  价格小于110，溢价率小于10%
+<br>
+此刻筛选结果如下
+<br>
+
+<table border="1px">
+    {% for dept in deptList %}
+        <tr>
+            <td>{{ dept.bond_nm }}</td>
+            <td>{{ dept.price }}</td>
+            <td>{{ dept.premium_rt }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

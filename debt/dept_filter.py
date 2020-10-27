@@ -31,6 +31,9 @@ def isTargetDept(dept):
     priceTips = cell["price_tips"]
     if (priceTips == "待上市"):
         return False
+    btype = cell['btype']
+    if (btype == 'E'):
+        return False
     priceString = cell['price']
     price = float(priceString);
 
@@ -49,20 +52,22 @@ def filterTargetDeptList(detpArray):
     targtDetpList = [];
     for dept in detpArray:
         if(isTargetDept(dept)):
-            targtDetpList.append(dept)
+            targtDetpList.append(dept['cell'])
     return targtDetpList
 
+# 对外的公有方法
+def fetchTargetDeptLsit():
+    millis = int(round(time.time() * 1000))
+    url = 'https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=%i' % (millis)
+    print(url);
+    rsps = requests.get(url)
+    rspsObj = json.loads(rsps.text);
 
-#https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=1598580552464
-millis = int(round(time.time() * 1000))
-url = 'https://www.jisilu.cn/data/cbnew/cb_list/?___jsl=LST___t=%i' % (millis)
-print(url);
-rsps = requests.get(url)
+    # filter the target depts
+    deptList = filterTargetDeptList(rspsObj['rows'])
+    return deptList
 
-rspsObj = json.loads(rsps.text);
+# deptList = fetchTargetDeptLsit()
+# reportTagetDeptList(deptList)
 
-# filter the target depts
-deptList = filterTargetDeptList(rspsObj['rows'])
-# report targests
-reportTagetDeptList(deptList)
 
