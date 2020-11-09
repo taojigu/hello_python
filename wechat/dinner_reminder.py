@@ -2,7 +2,8 @@ from .message_worker import *
 def reminderTextList():
     return [
         '吃饭不积极，思想有问题',
-        '排队不早走，饭菜贱如狗'
+        '排队不早走，饭菜贱如狗',
+        '预就小厨房，须知排队长'
     ]
 
 def sendDinnerText(index):
