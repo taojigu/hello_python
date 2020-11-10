@@ -12,7 +12,7 @@ def dinnerTextJob2():
     return
 
 def dinnerTextJob3():
-    sendDinnerText(3)
+    sendDinnerText(2)
     return
 
 def directDinnerTextJob(text):
