@@ -13,11 +13,18 @@
 <br>
 
 <table border="1px">
+    <tr>
+        <td>名字</td>
+        <td>价格</td>
+        <td>溢价率</td>
+        <td>信用等级</td>
+    </tr>
     {% for dept in deptList %}
         <tr>
             <td>{{ dept.bond_nm }}</td>
             <td>{{ dept.price }}</td>
             <td>{{ dept.premium_rt }}</td>
+            <td>{{ dept.rating_cd }}</td>
         </tr>
     {% endfor %}
 </table>
